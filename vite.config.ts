@@ -1,7 +1,6 @@
 /// <reference types="vitest" />
 /// <reference types="vite/client" />
 import react from '@vitejs/plugin-react'
-import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import tsConfigPaths from 'vite-tsconfig-paths'
 
@@ -18,10 +17,6 @@ export default defineConfig({
   server: {
     host: 'localhost',
     port: 3000,
-    https: {
-      cert: resolve(__dirname, 'config/local-certificate/localhost.crt'),
-      key: resolve(__dirname, 'config/local-certificate/localhost.key'),
-    },
   },
   build: {
     outDir: 'build',

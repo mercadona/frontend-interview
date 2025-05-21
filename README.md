@@ -1,79 +1,36 @@
-# mo.boilerplate.react-vite
+# Frontend interview
 
-## Create a new repo with the boilerplate content
+## Context
 
-Follow the following link and fill the form with the name of your new project
+You will work on an e-commerce application for food products (fruits, vegetables, dairy, etc.). The goal is to evaluate your knowledge of React, state management, hooks, testing and CSS/HTML best practices, as well as your ability to communicate technical decisions.
 
-https://github.com/mercadona/mo.boilerplate.react-vite/generate
+## Goals
 
-## Setup your local environment
-Create a `.env.local` file under `config/env/` directory. You can take this as an starting point:
+1. **Catalog interface:** display a list of products obtained from a simulated API.
+2. **Shopping cart:** view total, modify quantities and delete items.
+3. **Testing:** testing the application with Jest/Vite and React Testing Library.
 
-```dotenv
-HOST='localhost'
-HTTPS=false
-PORT=3000
+## Functional requirements
 
-VITE_APP_ENV='LOCAL'
-VITE_APP_WEBSITE_NAME='LOCAL | Boilerplate'
-VITE_APP_VERSION=${NODE_IMAGE_VERSION}
+| Functionality | Detail                                                                                                                                   |  
+|---------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| Products list | Served from http://localhost:8000/api/products. The user should be able to visualize the product list in a grid and add items to the cart |         
+| Shopping cart | Route `/cart`.  The user should be able to edit quantities and remove items                                                              |
 
-VITE_APP_API_HOST='//boilerplate.sta.monline/api'
-VITE_APP_API_VERSION = '/v1_0'
+### Testing
 
-# Sentry
-VITE_APP_SENTRY_DSN=https://__sentry_key__@__sentry_host__/__sentry_project_id__
+You can either use Jest or Vitest with React Testing Library. You can use the testing library of your choice, but you should be able to run the tests with `npm run test`.
 
-# Elastic APM
-VITE_APP_ELASTIC_APM_NAME='boilerplate_sta'
-VITE_APP_ELASTIC_APM_HOST='http://apm.sta.monline'
-```
+## The boilerplate
 
-### Troubleshooting
+The project is a Vite + React application. You can run the application with `npm run dev` and the tests with `npm run test`.  To start the API you can use `npm run server`. The API is a simple Express server that serves the products list. You can start the API with the command `npm run api`. The API is a simple Express server that serves the products list. You can start the API with the command `npm run api`. The API documentation is served at `http://localhost:8000/docs`.
 
-#### Network overlap
-Run the following script and follow the instructions printed in the console to remove network collisions
+## Screenshots
 
-https://github.com/mercadona/mo.tools.devtools/blob/master/docker_network_overlap.sh
+### Home page
 
-## Running locally
+![Frontend interview](home.png)
 
-### Install
-You need `node` and `npm` installed in your system. Please, use [nvm](https://github.com/nvm-sh/nvm) or [asdf](https://asdf-vm.com/) to install the proper Node version.
+### Cart page
 
-Install the project dependencies:
-
-```bash
-npm install
-```
-
-### Start local server
-
-Runs the app in development mode:
-
-```bash
-npm start
-```
-
-### Run the unit test
-Runs the test watcher in an interactive mode:
-
-```bash
-npm test
-```
-
-Take a look at the available commands under `npm test`
-
-# Deployment
-
-Review the changelog since the last tag
-
-```bash
-make changelog
-```
-
-Prepare a deployment of the last version
-
-```bash
-make prepare-deploy
-```
+![Frontend interview](cart.png)
