@@ -6,16 +6,13 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "build:sta": "vite build --mode sta",
-    "build:prod": "vite build --mode prod",
     "test": "vitest",
-    "test-staging": "vitest --mode sta",
-    "test:coverage": "vitest --coverage",
     "preview": "vite preview",
     "lint": "eslint --cache --ext .ts,.tsx src --report-unused-disable-directives --max-warnings 0",
     "lint-fix": "eslint --cache --ext .ts,.tsx src --fix",
     "format": "prettier --cache --write \"src/**/*.{ts,tsx,css,json,md}\"",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "api": "node api/api.js"
   },
   "devDependencies": {
     "@testing-library/dom": "^10.4.0",
@@ -34,25 +31,26 @@
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
+    "jest": "^29.7.0",
     "jsdom": "^26.0.0",
+    "openapi3-ts": "^4.4.0",
     "prettier": "^3.5.3",
     "rollup": "^4.40.2",
+    "swagger-ui-express": "^5.0.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5.8.2",
     "vite": "^6.2.4",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.1.1"
   },
   "dependencies": {
-    "@elastic/apm-rum": "^5.16.0",
-    "@mercadona/mo.library.dashtil": "^1.1.1",
-    "@mercadona/mo.library.web-services": "^4.4.4",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "classnames": "^2.5.1",
+    "express": "^5.1.0",
     "history": "^5.3.0",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^7.4.1",
-    "wrapito": "^10.0.0"
+    "react-router-dom": "^7.4.1"
   }
 }
