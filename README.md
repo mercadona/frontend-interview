@@ -17,23 +17,6 @@ You will work on an e-commerce application for food products (fruits, vegetables
 | Products list | Served from http://localhost:8000/api/products. The user should be able to visualize the product list in a grid and add items to the cart |         
 | Shopping cart | Route `/cart`.  The user should be able to edit quantities and remove items                                                              |
 
-### API Docs
-The `/api/products` endpoint returns a list of products with this structure:
-
-```json
-[
-    {
-        id: number,
-        name: string,
-        description: string,
-        price: number,
-        image_url: string,
-        category: string,
-    }
-]
-```
-
-
 ### Testing
 
 You can either use Jest or Vitest with React Testing Library. You can use the testing library of your choice, but you should be able to run the tests with `npm run test`.
