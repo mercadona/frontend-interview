@@ -7,7 +7,7 @@ You will work on an e-commerce application for food products (fruits, vegetables
 ## Goals
 
 1. **Catalog interface:** display a list of products obtained from a simulated API.
-2. **Shopping cart:** view total, modify quantities and delete items.
+2. **Shopping cart:** view summary, view total quantities, modify quantities of items in cart and delete items from cart.
 3. **Testing:** testing the application with Jest/Vite and React Testing Library.
 
 ## Functional requirements
@@ -23,7 +23,7 @@ You can either use Jest or Vitest with React Testing Library. You can use the te
 
 ## The boilerplate
 
-The project is a Vite + React application. You can run the application with `npm run dev` and the tests with `npm run test`.  To start the API you can use `npm run server`. The API is a simple Express server that serves the products list. You can start the API with the command `npm run api`. The API is a simple Express server that serves the products list. You can start the API with the command `npm run api`. The API documentation is served at `http://localhost:8000/docs`.
+The project is a Vite + React application. You can run the application with `npm run dev` and the tests with `npm run test`. The API is a simple Express server that serves the products list. You can start the API with the command `npm run api`. The API documentation is served at `http://localhost:8000/docs`.
 
 ## Screenshots
 
