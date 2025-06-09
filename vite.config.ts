@@ -12,7 +12,7 @@ export default defineConfig({
     restoreMocks: true,
     globals: true,
     environment: 'jsdom',
-    setupFiles: ['./src/setupTests.ts', 'setup.ts'],
+    setupFiles: ['setup.ts'],
   },
   server: {
     host: 'localhost',
