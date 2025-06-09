@@ -1,9 +1,14 @@
-// index.js
+import cors from 'cors'
 import express from 'express'
 import swaggerUi from 'swagger-ui-express'
 
 const app = express()
 
+app.use(
+  cors({
+    origin: 'http://localhost:3000',
+  }),
+)
 app.use('/api/images', express.static('api/images'))
 
 const products = [
