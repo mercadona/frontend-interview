@@ -5,7 +5,7 @@ import './Header.css'
 const Header = () => {
   return (
     <header className="header">
-      <img src={mercaLogo} alt="Home" />
+      <img src={mercaLogo} alt="Logo de Mercadona" />
     </header>
   )
 }
