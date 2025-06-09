@@ -1,5 +1,5 @@
-import { Product } from 'system-ui/Product'
+import { ProductCard } from 'system-ui/ProductCard'
 
 export const Home = () => {
-  return <Product />
+  return <ProductCard />
 }

@@ -1,23 +1,23 @@
-.product {
+.product-card {
   width: 192px;
   height: 344px;
 }
 
-.product__image {
+.product-card__image {
   width: 192px;
   height: 192px;
 }
 
-.product__title {
+.product-card__title {
   font-size: 14px;
 }
 
-.product__description {
+.product-card__description {
   font-size: 12px;
   font-weight: normal;
 }
 
-.product__price {
+.product-card__price {
   font-size: 18px;
   font-weight: bold;
 }
