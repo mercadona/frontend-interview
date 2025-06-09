@@ -12,7 +12,7 @@ const products = [
     name: 'Red Apple',
     description: 'Fresh and crispy red apple from organic farms.',
     price: 0.5,
-    image_url: '/api/images/red_apple.jpg',
+    image_url: '/api/images/red_apple.png',
     category: 'Fruits',
   },
   {
@@ -20,7 +20,7 @@ const products = [
     name: 'Banana',
     description: 'Ripe bananas rich in potassium.',
     price: 0.3,
-    image_url: '/api/images/banana.jpg',
+    image_url: '/api/images/banana.png',
     category: 'Fruits',
   },
   {
@@ -28,7 +28,7 @@ const products = [
     name: 'Whole Milk',
     description: "Whole cow's milk, high in calcium and vitamin D.",
     price: 1.2,
-    image_url: '/api/images/whole_milk.jpg',
+    image_url: '/api/images/whole_milk.png',
     category: 'Dairy',
   },
   {
@@ -36,7 +36,7 @@ const products = [
     name: 'Manchego Cheese',
     description: 'Aged Manchego cheese with a strong flavor.',
     price: 3.5,
-    image_url: '/api/images/manchego_cheese.jpg',
+    image_url: '/api/images/manchego_cheese.png',
     category: 'Dairy',
   },
   {
@@ -44,34 +44,18 @@ const products = [
     name: 'Tomato',
     description: 'Ripe tomatoes perfect for salads.',
     price: 0.8,
-    image_url: '/api/images/tomato.jpg',
+    image_url: '/api/images/tomato.png',
     category: 'Vegetables',
   },
 ]
 
-const uniqueNames = [...new Set(products.map((p) => p.category))].sort()
-const categories = uniqueNames.map((name, idx) => ({ id: idx + 1, name }))
-
 // Routes
-app.get('/api/categories', (req, res) => {
-  res.json(categories)
-})
-
 app.get('/api/products', (req, res) => {
   const { category } = req.query
   if (category) {
     return res.json(products.filter((p) => p.category === category))
   }
   res.json(products)
-})
-
-app.get('/api/products/:id', (req, res) => {
-  const id = parseInt(req.params.id, 10)
-  const product = products.find((p) => p.id === id)
-  if (!product) {
-    return res.status(404).json({ detail: 'Product not found' })
-  }
-  res.json(product)
 })
 
 const openapiDocument = {
@@ -84,24 +68,6 @@ const openapiDocument = {
   },
   servers: [{ url: 'http://localhost:3000' }],
   paths: {
-    '/api/categories': {
-      get: {
-        summary: 'List categories',
-        responses: {
-          200: {
-            description: 'Array of category objects',
-            content: {
-              'application/json': {
-                schema: {
-                  type: 'array',
-                  items: { $ref: '#/components/schemas/Category' },
-                },
-              },
-            },
-          },
-        },
-      },
-    },
     '/api/products': {
       get: {
         summary: 'List products',
@@ -128,41 +94,9 @@ const openapiDocument = {
         },
       },
     },
-    '/api/products/{id}': {
-      get: {
-        summary: 'Get a product by ID',
-        parameters: [
-          {
-            name: 'id',
-            in: 'path',
-            required: true,
-            schema: { type: 'integer' },
-          },
-        ],
-        responses: {
-          200: {
-            description: 'Product object',
-            content: {
-              'application/json': {
-                schema: { $ref: '#/components/schemas/Product' },
-              },
-            },
-          },
-          404: { description: 'Product not found' },
-        },
-      },
-    },
   },
   components: {
     schemas: {
-      Category: {
-        type: 'object',
-        properties: {
-          id: { type: 'integer' },
-          name: { type: 'string' },
-        },
-        required: ['id', 'name'],
-      },
       Product: {
         type: 'object',
         properties: {
