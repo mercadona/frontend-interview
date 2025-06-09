@@ -1,0 +1,8 @@
+.shopping-cart-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.shopping-cart-button__amount {
+}
