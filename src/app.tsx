@@ -5,11 +5,11 @@ import { Home } from 'pages/Home/Home'
 import { Layout } from './system-ui/layout'
 
 export const App = () => (
-  <Layout>
-    <BrowserRouter>
+  <BrowserRouter>
+    <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
-    </BrowserRouter>
-  </Layout>
+    </Layout>
+  </BrowserRouter>
 )
