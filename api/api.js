@@ -6,7 +6,7 @@ const app = express()
 
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: 'http://localhost:8000',
   }),
 )
 app.use('/api/images', express.static('api/images'))
@@ -71,7 +71,7 @@ const openapiDocument = {
     description:
       'API for a simple food e-commerce with products and categories.',
   },
-  servers: [{ url: 'http://localhost:3000' }],
+  servers: [{ url: 'http://localhost:8000' }],
   paths: {
     '/api/products': {
       get: {
