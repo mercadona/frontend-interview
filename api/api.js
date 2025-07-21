@@ -6,7 +6,7 @@ const app = express()
 
 app.use(
   cors({
-    origin: 'http://localhost:8000',
+    origin: 'http://localhost:3000',
   }),
 )
 app.use('/api/images', express.static('api/images'))
