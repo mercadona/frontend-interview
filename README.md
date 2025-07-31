@@ -31,3 +31,39 @@ The project is a Vite + React application. You can run the application with `npm
 ### Cart page
 
 ![Frontend interview](cart.png)
+
+---
+
+# Entrevista Frontend
+
+## Contexto
+
+Vas a trabajar en una aplicación de e-commerce para alimentos (frutas, verduras, lácteos, etc.). El objetivo es evaluar tu conocimiento de React, manejo de estados, hooks, testing y buenas prácticas en CSS/HTML, así como tu capacidad para comunicar decisiones técnicas.
+
+## Objetivos
+
+1. **Interfaz de catálogo:** mostrar una lista de productos obtenidos desde una API simulada.
+2. **Carrito de compras:** ver el resumen, ver cantidades totales, modificar cantidades de productos y eliminar productos del carrito.
+3. **Testing:** probar la aplicación con Vitest y React Testing Library.
+
+## Requisitos funcionales
+
+| Funcionalidad         | Detalle                                                                                                                                                     |  
+|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Lista de productos     | Se encuentra en http://localhost:8000/api/products. El usuario debe poder visualizar la lista de productos en una cuadrícula y agregar productos al carrito |
+| Botón del carrito      | Muestra el total de unidades agregadas al carrito. Al hacer clic en el botón se debe navegar a la página de pago                                            |
+| Página de pago         | Ruta `/checkout`. El usuario debe poder ver todos los productos con su cantidad total y precio por producto                                                 |
+
+## El boilerplate
+
+El proyecto es una aplicación de Vite + React. Puedes ejecutar la aplicación con `npm run dev` y las pruebas con `npm run test`. La API es un servidor Express simple que sirve la lista de productos. Puedes iniciar la API con el comando `npm run api`. La documentación de la API está disponible en `http://localhost:8000/docs`.
+
+## Capturas de pantalla
+
+### Página de inicio
+
+![Frontend interview](home.png)
+
+### Página del carrito
+
+![Frontend interview](cart.png)
