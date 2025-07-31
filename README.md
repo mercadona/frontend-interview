@@ -48,11 +48,11 @@ Vas a trabajar en una aplicación de e-commerce para alimentos (frutas, verduras
 
 ## Requisitos funcionales
 
-| Funcionalidad         | Detalle                                                                                                                                                     |  
-|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Lista de productos     | Se encuentra en http://localhost:8000/api/products. El usuario debe poder visualizar la lista de productos en una cuadrícula y agregar productos al carrito |
-| Botón del carrito      | Muestra el total de unidades agregadas al carrito. Al hacer clic en el botón se debe navegar a la página de pago                                            |
-| Página de pago         | Ruta `/checkout`. El usuario debe poder ver todos los productos con su cantidad total y precio por producto                                                 |
+| Funcionalidad      | Detalle                                                                                                                                                     |  
+|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Lista de productos | Se encuentra en http://localhost:8000/api/products. El usuario debe poder visualizar la lista de productos en una cuadrícula y agregar productos al carrito |
+| Botón del carrito  | Muestra el total de unidades agregadas al carrito. Al hacer clic en el botón se debe navegar al checkout                                                   |
+| Checkout           | Ruta `/checkout`. El usuario debe poder ver todos los productos con su cantidad total y precio por producto                                                 |
 
 ## El boilerplate
 
