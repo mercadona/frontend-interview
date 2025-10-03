@@ -1,20 +1,29 @@
+import { Product } from 'types/Product.type'
+
 import './ProductCard.css'
 
-export const ProductCard = () => {
+type ProductCardProps = Omit<Product, 'category'> & { currentQuantity?: number }
+
+export const ProductCard = ({
+  name,
+  description,
+  price,
+  currentQuantity = 0,
+  image_url,
+  id,
+}: ProductCardProps) => {
   return (
-    <article className="product-card">
+    <article className="product-card" data-product-id={id}>
       <img
         className="product-card__image"
-        src="https://placehold.co/192x192"
-        alt=""
+        src={image_url ?? 'https://placehold.co/192x192'}
+        alt={`image of product ${id} -  ${name}`}
       />
-      <h1 className="product-card__title">Manchego Cheese</h1>
-      <h2 className="product-card__description">
-        Aged Manchego cheese with a strong flavor.
-      </h2>
-      <div className="product-card__price">3,50 €</div>
+      <h1 className="product-card__title">{name}</h1>
+      <h2 className="product-card__description">{description}</h2>
+      <div className="product-card__price">{price} €</div>
       <footer>
-        <span>0 ud.</span>
+        <span>{currentQuantity} ud.</span>
         <button>-</button>
         <button>+</button>
       </footer>
