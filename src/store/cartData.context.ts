@@ -1,14 +1,17 @@
 import { createContext } from 'react'
-import { useCartData } from 'store/cartData.hook'
 
-export const CartContext = createContext<CartContextValue>({
+import { CartDataType, UpdateCart } from './cartData.type'
+
+const initialValue: CartContextValue = {
   cartData: {},
   updateCart: () => {},
   totalItems: 0,
-})
+}
+
+export const CartContext = createContext<CartContextValue>(initialValue)
 
 type CartContextValue = {
-  cartData: ReturnType<typeof useCartData>['cartData']
-  updateCart: ReturnType<typeof useCartData>['updateCart']
+  cartData: CartDataType
+  updateCart: UpdateCart
   totalItems: number
 }
