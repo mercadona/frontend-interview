@@ -1,5 +1,8 @@
-import { CartDataType } from 'types/Product.type'
+import { useContext } from 'react'
+import { CartContext } from 'store/cartData.context'
 
-export function Cart(props: { cartData: CartDataType }) {
-  return JSON.stringify(props.cartData, null, 2)
+export function Cart() {
+  const { cartData } = useContext(CartContext)
+
+  return JSON.stringify(cartData, null, 2)
 }

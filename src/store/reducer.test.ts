@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 
-import { reducer } from './useCartData'
+import { reducer } from './cartData.hook'
 
 describe('reducer', () => {
   test('must increment ', () => {

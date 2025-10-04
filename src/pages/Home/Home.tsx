@@ -1,14 +1,15 @@
+import { useContext } from 'react'
+import { CartContext } from 'store/cartData.context'
+
 import { ProductCard } from 'system-ui/ProductCard'
 
 import { useHomeData } from './Home.hook'
 import './Home.styles.css'
 
-type HomeProps = {
-  setCartData: (id: string, inc: 1 | -1) => void // TODO Refactor to types file
-}
-
-export const Home = ({ setCartData }: HomeProps) => {
+export const Home = () => {
   const { products } = useHomeData()
+  const { updateCart: setCartData } = useContext(CartContext)
+
   return (
     <section className="Home-ProductList" data-testid="Home-ProductList">
       {products.map(({ id, price, name, image_url, description }) => (

@@ -19,3 +19,9 @@ export function reducer(prev: CartDataType, id: string, increment: Increment) {
 }
 
 type Increment = 1 | -1
+type UpdateCard = (id: string, increment: Increment) => void
+
+export type UseCartDataReturnType = {
+  updateCart: UpdateCard
+  cartData: CartDataType
+}

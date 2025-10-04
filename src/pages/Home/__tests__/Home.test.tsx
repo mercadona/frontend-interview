@@ -14,7 +14,7 @@ vi.mock('../Home.service.ts', async () => {
 
 describe('ProductCard unit test', () => {
   beforeEach(() => {
-    render(<Home setCartData={vi.fn()} />)
+    render(<Home />)
   })
   afterEach(() => {
     cleanup()
