@@ -6,7 +6,7 @@ export async function fetchProducts(): Promise<Product[]> {
   const response = await fetch(BASE_URL + '/api/products')
 
   if (!response.ok) {
-    throw new Error('Failt fetch data, status:' + response.status)
+    throw new Error('Failed to fetch data, status:' + response.status)
   }
   return await response.json()
 }

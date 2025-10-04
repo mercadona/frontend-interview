@@ -1,10 +1,11 @@
 import { cleanup, render, screen } from '@testing-library/react'
+import { CartDataProvider } from 'store/cartData.provider'
 import { describe, expect, test, vi } from 'vitest'
 
 import { Home } from '../Home'
 import { DATA } from './Home.fixtures'
 
-vi.mock('../Home.service.ts', async () => {
+vi.mock('../../../store/products.service.ts', async () => {
   return {
     fetchProducts: () => {
       return Promise.resolve(DATA)
@@ -14,7 +15,11 @@ vi.mock('../Home.service.ts', async () => {
 
 describe('ProductCard unit test', () => {
   beforeEach(() => {
-    render(<Home />)
+    render(
+      <CartDataProvider>
+        <Home />
+      </CartDataProvider>,
+    )
   })
   afterEach(() => {
     cleanup()

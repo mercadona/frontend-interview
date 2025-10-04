@@ -3,12 +3,11 @@ import { CartContext } from 'store/cartData.context'
 
 import { ProductCard } from 'system-ui/ProductCard'
 
-import { useHomeData } from './Home.hook'
 import './Home.styles.css'
 
 export const Home = () => {
-  const { products } = useHomeData()
-  const { updateCart: setCartData } = useContext(CartContext)
+  const { updateCart: setCartData, productsData: products } =
+    useContext(CartContext)
 
   return (
     <section className="Home-ProductList" data-testid="Home-ProductList">
