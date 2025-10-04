@@ -28,8 +28,18 @@ export const ProductCard = ({
       <div className="product-card__price">{price} €</div>
       <footer>
         <span>{currentQuantity} ud.</span>
-        <button onClick={() => setCartData(String(id), -1)}>-</button>
-        <button onClick={() => setCartData(String(id), -1)}>+</button>
+        <button
+          data-testid={`product-card__decrement`}
+          onClick={() => setCartData(String(id), -1)}
+        >
+          -
+        </button>
+        <button
+          data-testid={`product-card__increment`}
+          onClick={() => setCartData(String(id), 1)}
+        >
+          +
+        </button>
       </footer>
     </article>
   )
