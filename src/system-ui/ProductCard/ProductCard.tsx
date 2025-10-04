@@ -2,7 +2,10 @@ import { Product } from 'types/Product.type'
 
 import './ProductCard.css'
 
-type ProductCardProps = Omit<Product, 'category'> & { currentQuantity?: number }
+type ProductCardProps = Omit<Product, 'category'> & {
+  currentQuantity?: number
+  setCartData: (id: string, inc: 1 | -1) => void
+}
 
 export const ProductCard = ({
   name,
@@ -11,9 +14,10 @@ export const ProductCard = ({
   currentQuantity = 0,
   image_url,
   id,
+  setCartData,
 }: ProductCardProps) => {
   return (
-    <article className="product-card" data-product-id={id}>
+    <article className="product-card" data-testid={id}>
       <img
         className="product-card__image"
         src={image_url ?? 'https://placehold.co/192x192'}
@@ -24,8 +28,8 @@ export const ProductCard = ({
       <div className="product-card__price">{price} €</div>
       <footer>
         <span>{currentQuantity} ud.</span>
-        <button>-</button>
-        <button>+</button>
+        <button onClick={() => setCartData(String(id), -1)}>-</button>
+        <button onClick={() => setCartData(String(id), -1)}>+</button>
       </footer>
     </article>
   )

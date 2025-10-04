@@ -3,10 +3,10 @@ import { ProductCard } from 'system-ui/ProductCard'
 import { useHomeData } from './Home.hook'
 import './Home.styles.css'
 
-export const Home = () => {
+export const Home = ({ setCartData }) => {
   const { products } = useHomeData()
   return (
-    <section className="Home-ProductList">
+    <section className="Home-ProductList" data-testid="Home-ProductList">
       {products.map(({ id, price, name, image_url, description }) => (
         <ProductCard
           key={id}
@@ -15,6 +15,7 @@ export const Home = () => {
           name={name}
           image_url={image_url}
           description={description}
+          setCartData={setCartData}
         />
       ))}
     </section>
