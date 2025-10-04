@@ -4,15 +4,17 @@ import { describe, expect, test, vi } from 'vitest'
 import { Home } from '../Home'
 import { DATA } from './Home.fixtures'
 
-vi.mock('./Home.service.ts', async () => {
+vi.mock('../Home.service.ts', async () => {
   return {
-    fetchProducts: () => Promise.resolve(DATA ),
+    fetchProducts: () => {
+      return Promise.resolve(DATA)
+    },
   }
 })
 
 describe('ProductCard unit test', () => {
   beforeEach(() => {
-    render(<Home />)
+    render(<Home setCartData={vi.fn()} />)
   })
   afterEach(() => {
     cleanup()

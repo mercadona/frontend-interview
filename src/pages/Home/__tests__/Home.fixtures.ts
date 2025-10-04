@@ -1,7 +1,7 @@
 export const DATA = [
   {
     id: 1,
-    name: 'Red Apple',
+    name: 'blue apple',
     description: 'Fresh and crispy red apple from organic farms.',
     price: 0.5,
     image_url: '/api/images/red_apple.png',
@@ -9,7 +9,7 @@ export const DATA = [
   },
   {
     id: 2,
-    name: 'Banana',
+    name: 'Banana yellow',
     description: 'Ripe bananas rich in potassium.',
     price: 0.3,
     image_url: '/api/images/banana.png',

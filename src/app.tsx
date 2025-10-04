@@ -1,15 +1,14 @@
 import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
+import { Cart } from 'pages/Cart/Cart'
 import { Home } from 'pages/Home/Home'
+import type { CartDataType } from 'types/Product.type'
 
 import { Layout } from './system-ui/layout'
 
-type CartDataType = Record<string, number>
-
 export const App = () => {
-  const [cartData, setCartData] = useState<CartDataType>()
-  console.log({ cartData })
+  const [cartData, setCartData] = useState<CartDataType>({})
 
   function updateCart(id: string, increment: 1 | -1) {
     setCartData((prev) => {
@@ -29,8 +28,4 @@ export const App = () => {
       </Layout>
     </BrowserRouter>
   )
-}
-
-function Cart(props: any) {
-  return JSON.stringify(props, null, 2)
 }

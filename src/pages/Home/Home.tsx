@@ -3,7 +3,11 @@ import { ProductCard } from 'system-ui/ProductCard'
 import { useHomeData } from './Home.hook'
 import './Home.styles.css'
 
-export const Home = ({ setCartData }) => {
+type HomeProps = {
+  setCartData: (id: string, inc: 1 | -1) => void // TODO Refactor to types file
+}
+
+export const Home = ({ setCartData }: HomeProps) => {
   const { products } = useHomeData()
   return (
     <section className="Home-ProductList" data-testid="Home-ProductList">
