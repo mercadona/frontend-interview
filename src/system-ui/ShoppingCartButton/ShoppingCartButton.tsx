@@ -7,8 +7,7 @@ import './ShoppingCartButton.css'
 
 export const ShoppingCartButton = () => {
   const cartContext = useContext(CartContext)
-  console.log('cartContext', cartContext)
-  const itemCount = cartContext?.cartData?.totalItems ?? 9999999
+  const itemCount = cartContext?.totalItems ?? 0
 
   return (
     <Link to="/cart" className="shopping-cart-button">

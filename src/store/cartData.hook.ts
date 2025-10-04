@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import type { CartDataType } from 'types/Product.type'
+import type { CartDataType, Increment } from './cartData.type'
 
 export function useCartData() {
   const [cartData, setCartData] = useState<CartDataType>({})
@@ -16,12 +16,4 @@ export function reducer(prev: CartDataType, id: string, increment: Increment) {
   nextData[id] = nextData[id] ? nextData[id] + increment : increment
   nextData[id] = nextData[id] < 0 ? 0 : nextData[id]
   return nextData
-}
-
-type Increment = 1 | -1
-type UpdateCard = (id: string, increment: Increment) => void
-
-export type UseCartDataReturnType = {
-  updateCart: UpdateCard
-  cartData: CartDataType
 }

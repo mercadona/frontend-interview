@@ -6,5 +6,3 @@ export type Product = {
   image_url: string
   category: string
 }
-
-export type CartDataType = Record<string, number>
