@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useReducer } from 'react'
 
-import type { CartDataType, Increment } from './cartData.type'
+import type { Action, CartDataType, Increment } from './cartData.type'
 
 const STORAGE_KEY = 'cartData'
 const persistedCartData = localStorage.getItem(STORAGE_KEY)
@@ -9,20 +9,33 @@ const initialCartData = persistedCartData
   : {}
 
 export function useCartData() {
-  const [cartData, setCartData] = useState<CartDataType>(initialCartData)
+  const [cartData, dispatch] = useReducer(reducer, initialCartData)
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(cartData))
   }, [cartData])
 
-  function updateCart(id: string, increment: Increment) {
-    setCartData((prevState) => reducer(prevState, id, increment))
-  }
+  const updateCart = useCallback(
+    (id: string, increment: Increment) => {
+      dispatch({ type: 'UPDATE_CART', payload: { id, increment } })
+    },
+    [dispatch],
+  )
+
   return { updateCart, cartData }
 }
 
-export function reducer(prev: CartDataType, id: string, increment: Increment) {
-  const nextData = { ...prev }
-  nextData[id] = nextData[id] ? nextData[id] + increment : increment
-  nextData[id] = nextData[id] < 0 ? 0 : nextData[id]
-  return nextData
+export function reducer(prev: CartDataType, action: Action): CartDataType {
+  // eslint-disable-next-line
+  const nextData = structuredClone(prev)
+  switch (action.type) {
+    case 'UPDATE_CART':
+      nextData[action.payload.id] = nextData[action.payload.id]
+        ? nextData[action.payload.id] + action.payload.increment
+        : action.payload.increment
+      nextData[action.payload.id] =
+        nextData[action.payload.id] < 0 ? 0 : nextData[action.payload.id]
+      return nextData
+    default:
+      return prev
+  }
 }

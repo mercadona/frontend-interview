@@ -7,3 +7,10 @@ export type UseCartDataReturnType = {
 }
 
 export type CartDataType = Record<string, number>
+
+export type Action = UpdateCartAction
+
+type UpdateCartAction = {
+  type: 'UPDATE_CART'
+  payload: { id: string; increment: Increment }
+}
