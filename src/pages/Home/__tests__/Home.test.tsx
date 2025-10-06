@@ -1,4 +1,5 @@
 import { cleanup, render, screen } from '@testing-library/react'
+import { act } from 'react'
 import { describe, expect, test, vi } from 'vitest'
 
 import { CartDataProvider } from 'store/cartData.provider'
@@ -15,12 +16,14 @@ vi.mock('../../../store/products.service.ts', async () => {
 })
 
 describe('Home ProductList', () => {
-  beforeEach(() => {
-    render(
-      <CartDataProvider>
-        <Home />
-      </CartDataProvider>,
-    )
+  beforeEach(async () => {
+    await act(async () => {
+      render(
+        <CartDataProvider>
+          <Home />
+        </CartDataProvider>,
+      )
+    })
   })
   afterEach(() => {
     cleanup()
