@@ -1,6 +1,7 @@
 import { cleanup, render, screen } from '@testing-library/react'
-import { CartDataProvider } from 'store/cartData.provider'
 import { describe, expect, test, vi } from 'vitest'
+
+import { CartDataProvider } from 'store/cartData.provider'
 
 import { Home } from '../Home'
 import { DATA } from './Home.fixtures'

@@ -1,6 +1,6 @@
 import { useContext } from 'react'
-import { CartContext } from 'store/cartData.context'
 
+import { CartContext } from 'store/cartData.context'
 import { ProductCard } from 'system-ui/ProductCard'
 
 import './Home.styles.css'

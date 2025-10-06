@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { CartDataProvider } from 'store/cartData.provider'
 
 import { Cart } from 'pages/Cart/Cart'
 import { Home } from 'pages/Home/Home'
+import { CartDataProvider } from 'store/cartData.provider'
 
 import { Layout } from './system-ui/layout'
 

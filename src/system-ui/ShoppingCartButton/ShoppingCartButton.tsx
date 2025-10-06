@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
+
 import { CartContext } from 'store/cartData.context'
 
 import cartIcon from '../assets/cart.svg'
