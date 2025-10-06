@@ -13,7 +13,7 @@ vi.mock('../../../store/products.service.ts', async () => {
   }
 })
 
-describe('ProductCard unit test', () => {
+describe('Home ProductList', () => {
   beforeEach(() => {
     render(
       <CartDataProvider>
