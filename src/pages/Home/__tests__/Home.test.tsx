@@ -1,11 +1,38 @@
-import { render, screen } from '@testing-library/react'
-import { App } from 'app'
-import { expect } from 'vitest'
+import { cleanup, render, screen } from '@testing-library/react'
+import { act } from 'react'
+import { describe, expect, test, vi } from 'vitest'
 
-it('should render the page elements', () => {
-  render(<App />)
+import { CartDataProvider } from 'store/cartData.provider'
 
-  expect(
-    screen.getByRole('img', { name: 'Logo de Mercadona' }),
-  ).toBeInTheDocument()
+import { Home } from '../Home'
+import { DATA } from './Home.fixtures'
+
+vi.mock('../../../store/products.service.ts', async () => {
+  return {
+    fetchProducts: () => {
+      return Promise.resolve(DATA)
+    },
+  }
+})
+
+describe('Home ProductList', () => {
+  beforeEach(async () => {
+    await act(async () => {
+      render(
+        <CartDataProvider>
+          <Home />
+        </CartDataProvider>,
+      )
+    })
+  })
+  afterEach(() => {
+    cleanup()
+  })
+  test('must be rendered', () => {
+    expect(screen.getByTestId('Home-ProductList')).toBeInTheDocument()
+  })
+
+  test('fetch data and be shown', async () => {
+    expect(await screen.findByText(DATA[0].name)).toBeInTheDocument()
+  })
 })
